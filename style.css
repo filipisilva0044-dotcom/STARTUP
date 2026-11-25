@@ -1,0 +1,631 @@
+/* Paleta tirada da logo: azul, ameixa, vermelho, laranja, amarelo, verde-azulado */
+:root {
+    --fundo: #0e1230;
+    --fundo-2: #151a42;
+    --superficie: #1b2152;
+    --borda: #343c7a;
+    --texto: #f4f5fb;
+    --texto-suave: #b4b9da;
+    --laranja: #e88a25;
+    --amarelo: #f7ad36;
+    --vermelho: #d92038;
+    --teal: #058a90;
+    --erro: #ff8a8a;
+    --fonte-titulo: "Barlow Condensed", "Arial Narrow", Arial, sans-serif;
+    --fonte-texto: "Barlow", Arial, sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+}
+
+body {
+    background: var(--fundo);
+    color: var(--texto);
+    font-family: var(--fonte-texto);
+    font-size: 17px;
+}
+
+h1, h2, h3 {
+    font-family: var(--fonte-titulo);
+    letter-spacing: 0.01em;
+}
+
+/* CABEÇALHO */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 8%;
+    background: rgba(14, 18, 48, 0.88);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--borda);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+}
+
+.logo img {
+    width: 46px;
+    height: 46px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid var(--amarelo);
+    background: #fff;
+}
+
+header h1 {
+    color: var(--texto);
+    font-size: 24px;
+    font-weight: 800;
+}
+
+nav a {
+    color: var(--texto-suave);
+    text-decoration: none;
+    margin-left: 22px;
+    font-weight: 500;
+    padding-bottom: 4px;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+}
+
+nav a:hover {
+    color: var(--texto);
+    border-bottom-color: var(--laranja);
+}
+
+/* INÍCIO (com imagem de fundo) */
+
+.hero {
+    position: relative;
+    overflow: hidden;
+    min-height: 88vh;
+    display: flex;
+    align-items: center;
+    padding: 100px 8%;
+    text-align: left;
+    background: var(--fundo-2);
+}
+
+.hero .fundo {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+/* Escurece a esquerda para o texto ficar legível sobre a imagem */
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(90deg, rgba(14, 18, 48, 0.92) 0%, rgba(14, 18, 48, 0.6) 55%, rgba(14, 18, 48, 0.1) 100%);
+}
+
+.hero-conteudo {
+    position: relative;
+    z-index: 2;
+    max-width: 620px;
+}
+
+.hero h2 {
+    font-size: clamp(48px, 8vw, 92px);
+    line-height: 0.98;
+    font-weight: 800;
+    color: var(--texto);
+    margin-bottom: 24px;
+}
+
+.hero p {
+    max-width: 480px;
+    font-size: 19px;
+    line-height: 1.6;
+    color: #dfe2f5;
+}
+
+/* BOTÕES */
+
+.botao {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 15px 28px;
+    background: var(--amarelo);
+    color: #1a1230;
+    text-decoration: none;
+    font-family: var(--fonte-titulo);
+    font-size: 20px;
+    font-weight: 700;
+    border-radius: 999px;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.botao:hover {
+    background: #fff;
+    transform: translateY(-2px);
+}
+
+/* SEÇÕES */
+
+section:not(.hero) {
+    padding: 90px 8%;
+    text-align: center;
+}
+
+section h2 {
+    font-size: clamp(34px, 5vw, 48px);
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+section:not(.hero) > p {
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+section p {
+    line-height: 1.7;
+    color: var(--texto-suave);
+}
+
+#sobre {
+    background: var(--fundo);
+}
+
+#beneficios {
+    background: var(--fundo-2);
+}
+
+/* CARDS */
+
+.cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 35px;
+}
+
+.card {
+    background: var(--superficie);
+    border: 1px solid var(--borda);
+    border-top: 4px solid var(--laranja);
+    padding: 30px 26px;
+    border-radius: 12px;
+    width: 250px;
+}
+
+.card:nth-child(4n+2) { border-top-color: var(--vermelho); }
+.card:nth-child(4n+3) { border-top-color: var(--teal); }
+.card:nth-child(4n+4) { border-top-color: var(--amarelo); }
+
+.card h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+/* PLANOS */
+
+.planos > p {
+    margin-bottom: 40px;
+}
+
+.planos-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.plano {
+    width: 290px;
+    min-height: 400px;
+    padding: 32px 26px;
+    border-radius: 16px;
+    background: var(--superficie);
+    border: 1px solid var(--borda);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 18px;
+}
+
+.plano h3 {
+    font-size: 28px;
+}
+
+.preco {
+    font-family: var(--fonte-titulo);
+    font-size: 42px;
+    font-weight: 800;
+    color: var(--amarelo);
+}
+
+.preco span {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--texto-suave);
+}
+
+.plano ul {
+    list-style: none;
+    text-align: left;
+    line-height: 1.9;
+    color: var(--texto-suave);
+}
+
+.plano li::before {
+    content: "✓ ";
+    color: var(--teal);
+    font-weight: bold;
+}
+
+.plano.destaque {
+    border: 2px solid var(--amarelo);
+    background: #242b66;
+    transform: scale(1.05);
+}
+
+.plano button {
+    border: none;
+    padding: 13px;
+    border-radius: 999px;
+    background: var(--amarelo);
+    color: #1a1230;
+    font-family: var(--fonte-titulo);
+    font-size: 19px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.plano button:hover {
+    background: #fff;
+}
+
+/* FORMULÁRIOS */
+
+#cadastro {
+    background: var(--fundo-2);
+}
+
+.formulario {
+    max-width: 700px;
+    margin: 35px auto 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    text-align: left;
+}
+
+.formulario .botao {
+    grid-column: 1 / -1;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.formulario-pace {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.campo label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--texto);
+}
+
+.campo input,
+.campo select {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 10px;
+    border: 1px solid var(--borda);
+    background: var(--superficie);
+    color: var(--texto);
+    font-family: inherit;
+    font-size: 16px;
+}
+
+.campo input:focus,
+.campo select:focus,
+.botao:focus-visible,
+.plano button:focus-visible,
+.btn-secundario:focus-visible,
+nav a:focus-visible {
+    outline: 2px solid var(--amarelo);
+    outline-offset: 2px;
+}
+
+.campo input.invalido,
+.campo select.invalido {
+    border-color: var(--erro);
+}
+
+.erro {
+    display: block;
+    min-height: 18px;
+    margin-top: 6px;
+    font-size: 13px;
+    color: var(--erro);
+}
+
+/* PAINEL DO ATLETA E RESULTADOS */
+
+.painel {
+    max-width: 700px;
+    margin: 40px auto 0;
+    padding: 30px;
+    border-radius: 14px;
+    border: 2px solid var(--teal);
+    background: var(--superficie);
+    text-align: left;
+}
+
+.painel h3 {
+    color: var(--amarelo);
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.painel .bloco {
+    margin-bottom: 20px;
+}
+
+.painel h4 {
+    margin-bottom: 6px;
+    font-size: 18px;
+}
+
+.painel p,
+.painel li {
+    color: var(--texto-suave);
+}
+
+.painel .aviso {
+    font-size: 13px;
+    color: #8d93bd;
+}
+
+.estimativas {
+    list-style: none;
+    margin: 15px 0;
+    line-height: 2;
+}
+
+/* LISTA DE ATLETAS */
+
+.lista-topo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 60px;
+}
+
+.lista-topo h3 {
+    font-size: 28px;
+}
+
+#lista-vazia {
+    margin-top: 20px;
+}
+
+.tag-plano {
+    color: var(--amarelo);
+    font-weight: 600;
+}
+
+.acoes-card {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+    justify-content: center;
+}
+
+.btn-secundario {
+    padding: 8px 14px;
+    border-radius: 999px;
+    border: 1px solid var(--borda);
+    background: transparent;
+    color: var(--texto);
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 14px;
+}
+
+.btn-secundario:hover {
+    border-color: var(--amarelo);
+}
+
+.btn-perigo:hover {
+    border-color: var(--erro);
+    color: var(--erro);
+}
+
+/* CONVITE */
+
+.convite {
+    background: linear-gradient(135deg, #3a1240 0%, #1e3575 60%, #058a90 130%);
+}
+
+.convite .botao {
+    margin-top: 10px;
+}
+
+/* RODAPÉ */
+
+footer {
+    padding-top: 60px;
+    background: var(--fundo);
+    border-top: 1px solid var(--borda);
+}
+
+.footer-container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 0 30px;
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+.footer-marca {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.footer-marca img {
+    width: 38px;
+    height: 38px;
+    object-fit: cover;
+    border-radius: 50%;
+    background: #fff;
+}
+
+.footer-marca h2 {
+    margin: 0;
+    font-size: 30px;
+    color: var(--amarelo);
+}
+
+.footer-logo p {
+    color: var(--texto-suave);
+    font-size: 15px;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-links h3 {
+    color: var(--amarelo);
+    font-size: 20px;
+    margin-bottom: 4px;
+}
+
+.footer-links a {
+    color: var(--texto);
+    text-decoration: none;
+    font-size: 15px;
+}
+
+.footer-links a:hover {
+    color: var(--amarelo);
+}
+
+.footer-bottom {
+    margin-top: 40px;
+    padding: 20px;
+    text-align: center;
+    border-top: 1px solid var(--borda);
+}
+
+.footer-bottom p {
+    color: #8d93bd;
+    font-size: 13px;
+}
+
+/* CELULAR */
+
+@media (max-width: 600px) {
+
+    header {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    nav a {
+        margin: 6px 8px;
+        display: inline-block;
+    }
+
+    .hero {
+        min-height: 80vh;
+        padding: 70px 6%;
+    }
+
+    .hero::after {
+        background: rgba(14, 18, 48, 0.72);
+    }
+
+    .cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .plano.destaque {
+        transform: none;
+    }
+
+    .formulario,
+    .formulario-pace {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-container {
+        flex-direction: column;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    .botao,
+    nav a {
+        transition: none;
+    }
+}
+
+/* AVISO DO PLANO E SUCESSO */
+
+.aviso-plano {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 8px 18px;
+    border-radius: 999px;
+    border: 1px solid var(--amarelo);
+    color: var(--amarelo);
+    font-weight: 600;
+}
+
+.sucesso {
+    text-align: center;
+}
+
+.sucesso:focus {
+    outline: none;
+}

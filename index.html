@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corre Cansado | Comunidade de corredores</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="logo.png">
+</head>
+
+<body>
+
+    <!-- CABEÇALHO -->
+    <header>
+        <a href="#inicio" class="logo">
+            <img src="logo.png" alt="Logo Corre Cansado">
+            <h1>Corre Cansado</h1>
+        </a>
+        <nav>
+            <a href="#inicio">Início</a>
+            <a href="#sobre">Sobre</a>
+            <a href="#beneficios">Benefícios</a>
+            <a href="#planos">Planos</a>
+            <a href="#cadastro">Cadastro</a>
+        </nav>
+    </header>
+
+    <!-- INÍCIO -->
+    <section class="hero" id="inicio">
+        
+        <img class="fundo" src="corrida.jpg" alt="Corredores ao nascer do sol" onerror="this.remove()">
+        <div class="hero-conteudo">
+            <h2>Ninguém precisa correr sozinho.</h2>
+
+            <p>
+                Uma comunidade para corredores reais.
+                Compartilhe experiências, supere limites
+                e evolua junto com a gente.
+            </p>
+
+            <a href="#cadastro" class="botao">Cadastre-se como atleta</a>
+        </div>
+
+    </section>
+
+    <!-- SOBRE -->
+    <section id="sobre">
+
+        <h2>Quem somos?</h2>
+
+        <p>
+            O Corre Cansado é uma comunidade criada para unir pessoas apaixonadas por corrida.
+            Aqui cada quilômetro é uma conquista, criado no intuito de ajudar corredores de rua.
+            Para poderem ter uma interação com a comunidade com ideias de treinos, alimentação e tudo mais!!
+        </p>
+
+    </section>
+
+    <!-- BENEFÍCIOS -->
+    <section id="beneficios">
+
+        <h2>Por que participar?</h2>
+
+        <div class="cards">
+
+            <div class="card">
+                <h3>🤝 Conexão</h3>
+                <p>Conheça outros corredores.</p>
+            </div>
+
+            <div class="card">
+                <h3>🔥 Motivação</h3>
+                <p>Encontre incentivo para continuar.</p>
+            </div>
+
+            <div class="card">
+                <h3>🏃 Evolução</h3>
+                <p>Evolua no seu próprio ritmo.</p>
+            </div>
+
+            <div class="card">
+                <h3>😍 Interação</h3>
+                <p>Aqui você pode interagir com companheiros de corrida de rua e aprender.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- PLANOS -->
+    <section class="planos" id="planos">
+
+        <h2>Escolha seu plano</h2>
+        <p>😍 Encontre o plano ideal para evoluir na corrida.</p>
+
+        <div class="planos-container">
+
+            <div class="plano" data-plano="Gratuito">
+                <h3>Plano Gratuito</h3>
+                <p class="preco">R$ 0<span>/mês</span></p>
+                <ul>
+                    <li>Acesso à comunidade</li>
+                    <li>Interação com corredores</li>
+                    <li>Participação em eventos</li>
+                </ul>
+                <button type="button">Começar agora</button>
+            </div>
+
+            <div class="plano destaque" data-plano="Destaque">
+                <h3>Plano Destaque</h3>
+                <p class="preco">R$ 19,90<span>/mês</span></p>
+                <ul>
+                    <li>Todos os benefícios do Gratuito</li>
+                    <li>Desafios exclusivos</li>
+                    <li>Estatísticas avançadas</li>
+                </ul>
+                <button type="button">Assinar Destaque</button>
+            </div>
+
+            <div class="plano" data-plano="Elite">
+                <h3>Plano Elite</h3>
+                <p class="preco">R$ 39,90<span>/mês</span></p>
+                <ul>
+                    <li>Desafios exclusivos</li>
+                    <li>Estatísticas avançadas</li>
+                    <li>Ranking com corredores</li>
+                    <li>Acompanhamento em tempo real com monitor</li>
+                </ul>
+                <button type="button">Assinar Elite</button>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- CADASTRO DE ATLETAS -->
+    <section id="cadastro">
+
+        <h2>Cadastre-se como atleta</h2>
+        <p>Preencha seus dados e receba a planilha de treino do seu objetivo por e-mail.</p>
+
+        <p id="aviso-plano" class="aviso-plano" hidden></p>
+
+        <form id="form-atleta" class="formulario" novalidate>
+
+            <div class="campo">
+                <label for="nome">Nome</label>
+                <input type="text" id="nome" autocomplete="name">
+                <small class="erro" id="erro-nome"></small>
+            </div>
+
+            <div class="campo">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" autocomplete="email">
+                <small class="erro" id="erro-email"></small>
+            </div>
+
+            <div class="campo">
+                <label for="idade">Idade</label>
+                <input type="number" id="idade" min="14" max="90">
+                <small class="erro" id="erro-idade"></small>
+            </div>
+
+            <div class="campo">
+                <label for="nivel">Seu nível</label>
+                <select id="nivel">
+                    <option value="">Selecione</option>
+                    <option value="iniciante">Iniciante (começando agora)</option>
+                    <option value="intermediario">Intermediário (corro toda semana)</option>
+                    <option value="avancado">Avançado (já faço provas)</option>
+                </select>
+                <small class="erro" id="erro-nivel"></small>
+            </div>
+
+            <div class="campo">
+                <label for="objetivo">Objetivo</label>
+                <select id="objetivo">
+                    <option value="">Selecione</option>
+                    <option value="5k">Correr 5 km</option>
+                    <option value="10k">Correr 10 km</option>
+                    <option value="21k">Meia maratona (21 km)</option>
+                    <option value="42k">Maratona (42 km)</option>
+                </select>
+                <small class="erro" id="erro-objetivo"></small>
+            </div>
+
+            <div class="campo">
+                <label for="plano">Plano</label>
+                <select id="plano">
+                    <option value="Gratuito">Gratuito (R$ 0)</option>
+                    <option value="Destaque">Destaque (R$ 19,90/mês)</option>
+                    <option value="Elite">Elite (R$ 39,90/mês)</option>
+                </select>
+            </div>
+
+            <button type="submit" class="botao">Cadastrar atleta</button>
+
+        </form>
+
+        <!-- Mensagem de sucesso -->
+        <div id="sucesso" class="painel sucesso" role="status" hidden>
+            <h3>Cadastro concluído!</h3>
+            <p id="sucesso-texto"></p>
+        </div>
+
+    </section>
+
+    <!-- CONVITE -->
+    <section class="convite">
+
+        <h2>Está cansado? Então corre com a gente!</h2>
+
+        <a href="https://wa.me/5561991628338" target="_blank" rel="noopener" class="botao">
+            Entrar no WhatsApp
+        </a>
+
+    </section>
+
+    <!-- RODAPÉ -->
+    <footer>
+        <div class="footer-container">
+
+            <div class="footer-logo">
+                <div class="footer-marca">
+                    <img src="logo.png" alt="">
+                    <h2>Corre Cansado</h2>
+                </div>
+                <p>Corra. Conecte-se. Evolua.</p>
+            </div>
+
+            <div class="footer-links">
+                <h3>Site</h3>
+                <a href="#sobre">Sobre nós</a>
+                <a href="#beneficios">Benefícios</a>
+                <a href="#planos">Planos</a>
+            </div>
+
+            <div class="footer-links">
+                <h3>Comunidade</h3>
+                <a href="#cadastro">Corredores</a>
+                <a href="#">Eventos</a>
+                <a href="#">Desafios</a>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 Corre Cansado. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
